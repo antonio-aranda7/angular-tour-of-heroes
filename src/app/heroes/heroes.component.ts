@@ -2,6 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 // 1 Crear interfaz de héroe
 import { Hero } from '../hero';
+// 2 / Mostrando héroes
+import { HEROES } from '../mock-heroes';
+
 
 @Component({
   selector: 'app-heroes',
@@ -18,13 +21,20 @@ export class HeroesComponent implements OnInit {
     name: 'Windstorm'
   };
 
+  // 2 / Mostrando héroes
+  heroes = HEROES; // una propiedad de componente llamada heroes para exponer la HEROES matriz para la vinculación.
+  // 2 / Agregar el controlador de eventos de clic
+  selectedHero: Hero; 
+
   constructor() {
 
   }
 
   ngOnInit(): void { // El ngOnInit() es un gancho de ciclo de vida ("lifecycle hook") . Angular llama a ngOnInit() inmediatamente después de crear el componente. Adecuado para poner la lógica de inicialización.
-
-
+  }
+  // 2 Agregar el controlador de eventos de clic
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
   }
 
 }
