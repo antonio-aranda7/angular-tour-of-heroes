@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // 1 Cambiar el titulo
   title = 'Tour of Heroes';
 }

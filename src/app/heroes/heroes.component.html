@@ -1,0 +1,26 @@
+<!-- 1 El editor del Héroe -->
+<p>1 El editor del Héroe</p>
+<br>
+<!-- 1 Mostrar el héroe -->
+<p>Mostrar el héroe</p>
+<p>{{hero}}</p>
+<br>
+<!-- 1 Mostrar objeto de héroe -->
+<p>Mostrar objeto de héroe</p>
+<h2>{{hero.name}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div>
+<br>
+<!--  1 Formatea con UppercasePipe-->
+<p>Formatea con UppercasePipe</p>
+<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<br>
+<!-- 1 Editar el héroe -->
+<p>Editar el héroe</p>
+<div>
+  <label>name:
+     <input [(ngModel)]="hero.name" placeholder="name"/> <!-- [(ngModel)] Es la sintaxis de enlace de datos bidireccional de Angular. -->
+  </label>
+</div>
+<br>
