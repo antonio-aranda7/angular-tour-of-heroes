@@ -1,0 +1,14 @@
+<!-- 3 Crear un componente de características / Crear HeroDetailComponent-->
+<!-- resultado del comando ng generate component hero-detail -->
+<!-- 3 / Escribir plantilla -->
+<div *ngIf="hero">
+    <p> 3 Crear un componente de características / </p>
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+      </label>
+    </div>
+  
+</div>

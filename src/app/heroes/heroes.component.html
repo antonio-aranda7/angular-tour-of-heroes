@@ -38,7 +38,7 @@
 </ul>
 <!-- 2 / La solución: oculta los detalles vacíos con * ngIf
 // El componente solo debe mostrar los detalles del héroe seleccionado si selectedHeroexiste. -->
-<div *ngIf="selectedHero"></div>
+<div *ngIf="selectedHero">
   <!-- 2 / Agregar una sección de detalles -->
   <h2>{{selectedHero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{selectedHero.id}}</div>
@@ -47,5 +47,19 @@
       <input [(ngModel)]="selectedHero.name" placeholder="name"/>
     </label>
   </div>
-
 </div>
+
+<!-- 3 Crear un componente de características / Actualizar las plantillas HeroesComponent-->
+<p>3 Crear un componente de características / Actualizar las plantillas HeroesComponent</p>
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<!-- 3 / Añadir la propiedad @Input() al héroe -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
