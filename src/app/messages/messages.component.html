@@ -1,0 +1,9 @@
+<!-- 4 / Enlazar al MessageService-->
+<div *ngIf="messageService.messages.length"><!--solo muestra el área de mensajes si hay mensajes para mostrar.-->
+
+    <h2>Messages</h2>
+    <button class="clear"
+            (click)="messageService.clear()">clear</button> <!--Un enlace de evento en angular une el evento de clic del botón a MessageService.clear (). -->
+    <div *ngFor='let message of messageService.messages'> {{message}} </div> <!--presenta la lista de mensajes en elementos repetidos<div>. -->
+  
+  </div>

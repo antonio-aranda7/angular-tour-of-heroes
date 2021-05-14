@@ -4,6 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 // 2 / Mostrando héroes
 import { HEROES } from '../mock-heroes';
+// 4 / Actualizar HeroesComponent
+import { HeroService } from '../hero.service';
+// 4 / Agregar mensajes adicionales al servicio de héroe
+import { MessageService } from '../message.service';
 
 
 @Component({
@@ -22,19 +26,32 @@ export class HeroesComponent implements OnInit {
   };
 
   // 2 / Mostrando héroes
-  heroes = HEROES; // una propiedad de componente llamada heroes para exponer la HEROES matriz para la vinculación.
+  //heroes = HEROES; // una propiedad de componente llamada heroes para exponer la HEROES matriz para la vinculación.
   // 2 / Agregar el controlador de eventos de clic
   selectedHero: Hero; 
+  // 4 / Actualizar HeroesComponent
+  heroes: Hero[];
 
-  constructor() {
+  constructor(/*4/Actualizar HeroesComponent*/private heroService: HeroService, /*4/*/private messageService: MessageService) {
 
   }
 
   ngOnInit(): void { // El ngOnInit() es un gancho de ciclo de vida ("lifecycle hook") . Angular llama a ngOnInit() inmediatamente después de crear el componente. Adecuado para poner la lógica de inicialización.
+    // 4 / Llamarlo en ngOnInit()
+    this.getHeroes();
   }
   // 2 Agregar el controlador de eventos de clic
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    // 4 / Agregar mensajes adicionales al servicio de héroe
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  }
+  // 4 / Añadir getHeroes()
+  getHeroes(): void {
+    
+    this.heroService.getHeroes()
+        // 4 / Suscríbirse en HeroesComponent
+        .subscribe(heroes => this.heroes = heroes); //  pasa el arreglo emitida a la devolución de llamada, que establece la propiedad 'heroes' del componente.
   }
 
 }

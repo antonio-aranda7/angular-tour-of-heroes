@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,9 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     // Pertenece al FormsModule opcional y debe optar por ese módulo para usarlo.
     FormsModule
   ],
-  providers: [],
+  providers: [
+     // no need to place any providers due to the `providedIn` flag...
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
