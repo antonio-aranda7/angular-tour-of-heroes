@@ -12,7 +12,6 @@ import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 
 @Injectable({ //El decorador acepta el objeto de metadatos de un servicio de la misma manera que el decorador para las clases de componentes.@Injectable()@Component()
-  
   providedIn: 'root',
 })
 export class HeroService {
@@ -25,5 +24,11 @@ export class HeroService {
     // 4 / Enviar un mensaje desde HeroService
     this.messageService.add('HeroService: fetched heroes');
     return of(HEROES); // of (HEROES) devuelve un Observable <Hero[]> que emite un valor único, el conjunto de héroes simulados.
+  }
+  // 5 / Agregar HeroService.getHero ()
+  getHero(id: number): Observable<Hero> {
+    // TODO: send the message _after_ fetching the hero
+    this.messageService.add(`HeroService: fetched hero id=${id}`); // las comillas invertidas (`) que definen un JavaScript plantilla literal para incrustar el id.
+    return of(HEROES.find(hero => hero.id === id));
   }
 }

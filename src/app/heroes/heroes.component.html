@@ -63,3 +63,15 @@
 
 <!-- 3 / Añadir la propiedad @Input() al héroe -->
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+<!-- 5 / Agrgar navegación en la aplicación-->
+<p>5 Agregar navegación en la aplicación</p>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <!-- 5 / Enlaces de héroe de HeroesComponent -->
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>

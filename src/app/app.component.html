@@ -2,7 +2,18 @@
  <h1>{{title}}</h1> <!--Las llaves dobles son la sintaxis de interpolación vinculante de Angular. Este enlace de interpolación pasa el valor de la propiedad title del componente en la etiqueta de encabezado HTML. -->
 
  <!-- 1 -->
-<app-heroes></app-heroes>
+<app-heroes></app-heroes><!-- Se reemplazo por "router-oulet"-->
+
+<!-- 5 / Agregar un enlace de navegación (routerLink)-->
+<nav>
+  <!-- El routerLink es el selector para la directiva RouterLink que convierte los clics del usuario en navegaciones del enrutador. Es otra de las directivas públicas del RouterModule. -->
+  <!-- 5 / Agregar enlace del tablero al caparazón -->
+  <a routerLink="/dashboard">Dashboard</a> <!-- El usuario debe poder navegar hacia adelante y hacia atrás entre DashboardComponent y HeroesComponent haciendo clic en los enlaces en el área de navegación cerca de la parte superior de la página. -->
+  <!-- 5 / Agregar un enlace de navegación (routerLink)-->
+  <a routerLink="/heroes">Heroes</a> <!-- Un atributo routerLink se establece en "/heroes", la cadena que el enrutador coincide con la ruta a HeroesComponent.  -->
+</nav>
+<!-- 5 / Agregar RouterOutlet-->
+<router-outlet></router-outlet> <!-- La plantilla AppComponent ya no necesita <app-heroes> porque la aplicación solo mostrará el HeroesComponent cuando el usuario navegue hacia él. -->
 
 <!-- 4 / Crear MessagesComponent-->
 <app-messages></app-messages>

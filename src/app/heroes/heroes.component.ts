@@ -41,6 +41,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
   // 2 Agregar el controlador de eventos de clic
+  // 5 / Eliminar código muerto (opcional) TODO
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
     // 4 / Agregar mensajes adicionales al servicio de héroe
