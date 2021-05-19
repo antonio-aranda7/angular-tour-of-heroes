@@ -46,5 +46,10 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void { // la clase de componente que navega hacia atrás un paso en la pila de historial del navegador usando el servicio Location que inyectaste previamente.
     this.location.back();
   }
+  // 6 /
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
 
 }

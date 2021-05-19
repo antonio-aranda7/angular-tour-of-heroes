@@ -32,7 +32,11 @@ export class HeroesComponent implements OnInit {
   // 4 / Actualizar HeroesComponent
   heroes: Hero[];
 
-  constructor(/*4/Actualizar HeroesComponent*/private heroService: HeroService, /*4/*/private messageService: MessageService) {
+  constructor(
+    /*4/Actualizar HeroesComponent*/
+    private heroService: HeroService, 
+    /*4/*/
+    private messageService: MessageService) {
 
   }
 
@@ -53,6 +57,20 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes()
         // 4 / Suscríbirse en HeroesComponent
         .subscribe(heroes => this.heroes = heroes); //  pasa el arreglo emitida a la devolución de llamada, que establece la propiedad 'heroes' del componente.
+  }
+  // 6 /
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
   }
 
 }

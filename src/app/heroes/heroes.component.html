@@ -1,45 +1,45 @@
-<!-- 1 El editor del Héroe -->
+<!-- 1 El editor del Héroe 
 <p>1 El editor del Héroe</p>
-<br>
-<!-- 1 Mostrar el héroe -->
+<br>-->
+<!-- 1 Mostrar el héroe 
 <p>Mostrar el héroe</p>
 <p>{{hero}}</p>
-<br>
-<!-- 1 Mostrar objeto de héroe -->
+<br>-->
+<!-- 1 Mostrar objeto de héroe 
 <p>Mostrar objeto de héroe</p>
 <h2>{{hero.name}} Details</h2>
 <div><span>id: </span>{{hero.id}}</div>
 <div><span>name: </span>{{hero.name}}</div>
-<br>
-<!--  1 Formatea con UppercasePipe-->
+<br>-->
+<!--  1 Formatea con UppercasePipe
 <p>Formatea con UppercasePipe</p>
 <h2>{{hero.name | uppercase}} Details</h2>
 <div><span>id: </span>{{hero.id}}</div>
-<br>
-<!-- 1 Editar el héroe -->
+<br>-->
+<!-- 1 Editar el héroe 
 <p>Editar el héroe</p>
 <div>
   <label>name:
-     <input [(ngModel)]="hero.name" placeholder="name"/> <!-- [(ngModel)] Es la sintaxis de enlace de datos bidireccional de Angular. -->
+     <input [(ngModel)]="hero.name" placeholder="name"/> --><!-- [(ngModel)] Es la sintaxis de enlace de datos bidireccional de Angular. 
   </label>
 </div>
-<br>
-<!-- 2 Mostrar una lista de selección-->
-<p>2 Mostrar una lista de selección</p>
-<!-- 2 / Lista de héroes con *ngFor -->
+<br>-->
+<!-- 2 Mostrar una lista de selección
+<p>2 Mostrar una lista de selección</p>-->
+<!-- 2 / Lista de héroes con *ngFor 
 <h2>My Heroes</h2>
-<ul class="heroes">
-  <!-- 2 / Lista de héroes con *ngFor-->
+<ul class="heroes">-->
+  <!-- 2 / Lista de héroes con *ngFor
   <li *ngFor="let hero of heroes"  
     [class.selected]="hero === selectedHero" 
-    (click)="onSelect(hero)"> <!-- 2 / Maestro / Detalle / Agregar un enlace de evento de clic-->
+    (click)="onSelect(hero)">--> <!-- 2 / Maestro / Detalle / Agregar un enlace de evento de clic
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
-</ul>
+</ul>-->
 <!-- 2 / La solución: oculta los detalles vacíos con * ngIf
-// El componente solo debe mostrar los detalles del héroe seleccionado si selectedHeroexiste. -->
-<div *ngIf="selectedHero">
-  <!-- 2 / Agregar una sección de detalles -->
+// El componente solo debe mostrar los detalles del héroe seleccionado si selectedHeroexiste. 
+<div *ngIf="selectedHero">-->
+  <!-- 2 / Agregar una sección de detalles 
   <h2>{{selectedHero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{selectedHero.id}}</div>
   <div>
@@ -47,9 +47,9 @@
       <input [(ngModel)]="selectedHero.name" placeholder="name"/>
     </label>
   </div>
-</div>
+</div>-->
 
-<!-- 3 Crear un componente de características / Actualizar las plantillas HeroesComponent-->
+<!-- 3 Crear un componente de características / Actualizar las plantillas HeroesComponent
 <p>3 Crear un componente de características / Actualizar las plantillas HeroesComponent</p>
 <h2>My Heroes</h2>
 
@@ -59,19 +59,43 @@
     (click)="onSelect(hero)">
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
-</ul>
+</ul>-->
 
-<!-- 3 / Añadir la propiedad @Input() al héroe -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- 3 / Añadir la propiedad @Input() al héroe 
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
 
-<!-- 5 / Agrgar navegación en la aplicación-->
+<!-- 5 / Agrgar navegación en la aplicación
 <p>5 Agregar navegación en la aplicación</p>
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <!-- 5 / Enlaces de héroe de HeroesComponent -->
+  <li *ngFor="let hero of heroes">-->
+    <!-- 5 / Enlaces de héroe de HeroesComponent 
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
+  </li>
+</ul>-->
+
+<!-- 6 / -->
+<p>6 A</p>
+<h2>My Heroes</h2>
+
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+      (click)="delete(hero)">x</button>
   </li>
 </ul>
