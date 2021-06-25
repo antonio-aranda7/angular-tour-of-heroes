@@ -39,7 +39,7 @@ import { MessagesComponent } from './messages/messages.component';
     // Pertenece al FormsModule opcional y debe optar por ese módulo para usarlo.
     FormsModule,
     AppRoutingModule,
-    // 6 / Habilitar servicios HTTP
+    // 6 / Simular un servidor de datos
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.

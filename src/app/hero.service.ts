@@ -22,7 +22,8 @@ import { MessageService } from './message.service';
 })
 
 export class HeroService {
-  // 6 /
+  // 6 / Heroes y HTTP
+  // Defina el heroesUrl del formulario :base/:collectionName con la dirección del recurso heroes en el servidor. Aquí base es el recurso al que se hacen las solicitudes, y collectionName es el objeto de datos de héroes en in-memory-data-service.ts.
   private heroesUrl = 'api/heroes';  // URL to web api
   // 6 /
   httpOptions = {
@@ -48,13 +49,15 @@ export class HeroService {
     // TODO: send the message _after_ fetching the heroes
     // 4 / Enviar un mensaje desde HeroService
     this.messageService.add('HeroService: fetched heroes');
-    return of(HEROES); // of (HEROES) devuelve un Observable <Hero[]> que emite un valor único, el conjunto de héroes simulados.
+   
     // 6 /
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
-      );
+      ); 
+    // Ya no se usa
+    return of(HEROES); // of (HEROES) devuelve un Observable <Hero[]> que emite un valor único, el conjunto de héroes simulados.
   }
   // 6 /
   /** GET hero by id. Return `undefined` when id not found */
@@ -146,6 +149,7 @@ export class HeroService {
     };
   }
 
+  // 6 / Heroes y HTTP
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
